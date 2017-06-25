@@ -11,20 +11,26 @@ Phone.prototype.printInfo = function() {
 };
 
 Phone.prototype.applyDiscount = function (percent) {
-	console.log("The discount is " + Math.round(Math.random() * 10) / 10 + "%.");
+	var discount = this.price - percent / 100 * this.price;
+	this.price = discount;
+	console.log('The discount is ' + percent +"%.");
 };
 
-var samsungGalaxyS6 = new Phone("Samsung", "2000", "black");
-var iPhone6S = new Phone("Apple", "2250", "silver");
-var onePlusOne = new Phone("OnePlus One", "2100", "grey");
+var samsungGalaxyS6 = new Phone("Samsung", 2000, "black");
+var iPhone6S = new Phone("Apple", 2250, "silver");
+var onePlusOne = new Phone("OnePlus One", 2100, "grey");
+
+// samsungGalaxyS6.printInfo();
+// samsungGalaxyS6.applyDiscount(20);
+// samsungGalaxyS6.printInfo();
 
 samsungGalaxyS6.printInfo();
 iPhone6S.printInfo();
 onePlusOne.printInfo();
 
-samsungGalaxyS6.applyDiscount();
-iPhone6S.applyDiscount();
-onePlusOne.applyDiscount();
+// samsungGalaxyS6.applyDiscount();
+// iPhone6S.applyDiscount();
+// onePlusOne.applyDiscount();
 
 // function Phone(brand, price, color) {
 // 	this.brand = brand;
@@ -39,3 +45,7 @@ onePlusOne.applyDiscount();
 // Math.floor(Math.random()*3);
 // Math.round(Math.random() * 10);
 // Math.round(Math.random() * 10) / 10;
+
+// Phone.prototype.applyDiscount = function (percent) {
+// 	console.log("The discount is " + Math.round(Math.random() * 10) / 10 + "%.");
+// };
